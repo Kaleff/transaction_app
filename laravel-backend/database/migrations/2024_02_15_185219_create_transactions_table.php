@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->enum('currency', array('EUR', 'GBP', 'USD', 'CHF', 'HUF', 'UAH', 'CZK', 'SEK', 'DKK', 'NOK', 'GEL', 'RON', 'PLN', 'AZN', 'TRY', 'BGN', 'MXN', 'CAD', 'AUD', 'CNY', 'JPY'));
-            $table->enum('sent_currency', array('EUR', 'GBP', 'USD', 'CHF', 'HUF', 'UAH', 'CZK', 'SEK', 'DKK', 'NOK', 'GEL', 'RON', 'PLN', 'AZN', 'TRY', 'BGN', 'MXN', 'CAD', 'AUD', 'CNY', 'JPY'));
-            $table->enum('received_currency', array('EUR', 'GBP', 'USD', 'CHF', 'HUF', 'UAH', 'CZK', 'SEK', 'DKK', 'NOK', 'GEL', 'RON', 'PLN', 'AZN', 'TRY', 'BGN', 'MXN', 'CAD', 'AUD', 'CNY', 'JPY'));
+            $table->enum('currency', config('currency.all_currencies'));
+            $table->enum('sent_currency', config('currency.all_currencies'));
+            $table->enum('received_currency', config('currency.all_currencies'));
             $table->double('amount', 12, 2);
             $table->double('host_currency_amount', 12, 2);
-            $table->double('exchange_rate', 12, 6);
+            $table->double('exchange_rate', 12, 5);
             $table->foreignId('sender_id');
             $table->foreignId('recipient_id');
             $table->foreignId('sender_account_id');

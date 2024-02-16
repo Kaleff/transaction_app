@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('currency_accounts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->enum('currency', array('EUR', 'GBP', 'USD', 'CHF', 'HUF', 'UAH', 'CZK', 'SEK', 'DKK', 'NOK', 'GEL', 'RON', 'PLN', 'AZN', 'TRY', 'BGN', 'MXN', 'CAD', 'AUD', 'CNY', 'JPY'));
+            $table->enum('currency', config('currency.all_currencies'));
             $table->foreignId('client_id');
             $table->double('amount', 12, 2);
             $table->softDeletesTz();

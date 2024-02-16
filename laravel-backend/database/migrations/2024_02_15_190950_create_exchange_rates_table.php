@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('exchange_rates', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->enum('currency', array('EUR', 'GBP', 'USD', 'CHF', 'HUF', 'UAH', 'CZK', 'SEK', 'DKK', 'NOK', 'GEL', 'RON', 'PLN', 'AZN', 'TRY', 'BGN', 'MXN', 'CAD', 'AUD', 'CNY', 'JPY'));
+            $table->enum('currency', config('currency.foreign_currencies'));
             $table->string('name');
-            $table->double('exchange_rate', 12, 6);
-            $table->double('reverse_exchange_rate', 12, 6);
+            $table->double('exchange_rate', 12, 5);
         });
     }
 
