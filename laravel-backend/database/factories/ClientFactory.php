@@ -25,7 +25,7 @@ class ClientFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'password' => static::$password ??= Hash::make('password'),
+            //'password' => static::$password ??= Hash::make('password'),
             'phone' => '371' . $this->faker->regexify('[0-9]{8}'),
         ];
     }

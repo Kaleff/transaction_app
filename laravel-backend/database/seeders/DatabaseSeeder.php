@@ -14,12 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::where('email', 'admin@bank.com')->firstOr(function () {
-            User::create([
-                'name' => 'admin',
-                'email' => 'admin@bank.com',
-                'password' => Hash::make('password'),
-            ]);
-        });
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@bank.com',
+            'password' => Hash::make('password'),
+        ]);
     }
 }
