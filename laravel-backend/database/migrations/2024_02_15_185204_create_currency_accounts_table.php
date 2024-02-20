@@ -19,6 +19,10 @@ return new class extends Migration
             $table->double('amount', 12, 2);
             $table->softDeletesTz();
         });
+
+        Schema::table('currency_accounts', function (Blueprint $table) {
+            $table->foreign('client_id')->references('id')->on('clients'); //->onDelete('cascade');
+        });
     }
 
     /**
@@ -26,6 +30,12 @@ return new class extends Migration
      */
     public function down(): void
     {
+        // Drop foreign keys
+        Schema::table('currency_accounts', function (Blueprint $table) {
+            $table->dropForeign('currency_accounts_client_id_foreign');
+            $table->dropIndex('currency_accounts_client_id_index');
+            $table->dropColumn('client_id');
+        });
         Schema::dropIfExists('currency_accounts');
     }
 };
