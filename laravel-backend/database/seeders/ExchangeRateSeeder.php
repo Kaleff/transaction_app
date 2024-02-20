@@ -13,8 +13,8 @@ class ExchangeRateSeeder extends Seeder
      */
     public function run(): void
     {
-        ExchangeRate::where('currency', 'JPY')->firstOr(function () {
-            ExchangeRate::createMany(config('currency.rates'));
-        });
+        ExchangeRate::upsert(config('currency.rates'), [
+            ['currency', 'name'], ['exchange_rate']
+        ]);
     }
 }
