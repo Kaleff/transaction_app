@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class CurrencyAccount extends Model
 {
     use HasFactory;
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string, double>
+     */
+    protected $fillable = [
+        'currency',
+        'client_id',
+        'amount'
+    ];
 }
