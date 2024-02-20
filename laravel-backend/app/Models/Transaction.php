@@ -16,8 +16,6 @@ class Transaction extends Model
      */
     protected $fillable = [
         'currency',
-        'sent_currency',
-        'received_currency',
         'amount',
         'host_currency_amount',
         'exchange_rate',

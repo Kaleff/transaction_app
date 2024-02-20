@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->enum('currency', config('currency.all_currencies'));
-            $table->enum('sent_currency', config('currency.all_currencies'));
-            $table->enum('received_currency', config('currency.all_currencies'));
             $table->double('amount', 12, 2);
             $table->double('host_currency_amount', 12, 2);
             $table->double('exchange_rate', 12, 5);
