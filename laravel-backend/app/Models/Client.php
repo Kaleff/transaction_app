@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Client extends Model
 {
@@ -18,4 +19,11 @@ class Client extends Model
         'email',
         'phone'
     ];
+    /**
+     * Get currency accounts associated with the client
+     */
+    public function currencyAccounts(): HasMany
+    {
+        return $this->hasMany(CurrencyAccount::class);
+    }
 }

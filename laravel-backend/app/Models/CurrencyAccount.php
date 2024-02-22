@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CurrencyAccount extends Model
 {
@@ -18,4 +19,11 @@ class CurrencyAccount extends Model
         'client_id',
         'amount'
     ];
+    /**
+     * Get exchange rates associated with account currency
+     */
+    public function exchangeRate(): BelongsTo
+    {
+        return $this->belongsTo(ExchangeRate::class, 'currency', 'currency');
+    }
 }
