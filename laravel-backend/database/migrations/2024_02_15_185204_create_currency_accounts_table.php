@@ -22,6 +22,7 @@ return new class extends Migration
 
         Schema::table('currency_accounts', function (Blueprint $table) {
             $table->foreign('client_id')->references('id')->on('clients'); //->onDelete('cascade');
+            $table->foreign('currency')->references('currency')->on('exchange_rates');
         });
     }
 
@@ -35,6 +36,10 @@ return new class extends Migration
             $table->dropForeign('currency_accounts_client_id_foreign');
             $table->dropIndex('currency_accounts_client_id_index');
             $table->dropColumn('client_id');
+
+            $table->dropForeign('currency_accounts_currency_foreign');
+            $table->dropIndex('currency_accounts_currency_index');
+            $table->dropColumn('currency');
         });
         Schema::dropIfExists('currency_accounts');
     }

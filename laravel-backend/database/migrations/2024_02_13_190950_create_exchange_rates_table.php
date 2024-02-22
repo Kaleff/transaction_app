@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('exchange_rates', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->enum('currency', config('currency.all_currencies'));
+            $table->enum('currency', config('currency.all_currencies'))->unique();
             $table->string('name');
             $table->double('exchange_rate', 12, 5);
         });

@@ -13,6 +13,6 @@ class CurrencyAccountSeeder extends Seeder
      */
     public function run(): void
     {
-        CurrencyAccount::factory(40)->create();
+        CurrencyAccount::factory(50)->create();
     }
 }
