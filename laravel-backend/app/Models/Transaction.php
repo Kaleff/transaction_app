@@ -17,8 +17,7 @@ class Transaction extends Model
     protected $fillable = [
         'currency',
         'amount',
-        'host_currency_amount',
-        'exchange_rate',
+        'sender_amount',
         'sender_id',
         'recipient_id',
         'sender_account_id',
