@@ -3,6 +3,11 @@
 return [
   'rates' => [
     [
+      'currency' => 'EUR',
+      'name' => 'Euro',
+      'exchange_rate' => 1
+    ],
+    [
       'currency' => 'GBP',
       'name' => 'Great British Pound',
       'exchange_rate' => 0.85635
@@ -90,5 +95,4 @@ return [
     ],
   ],
   'all_currencies' => ['EUR', 'GBP', 'USD', 'CHF', 'HUF', 'CZK', 'SEK', 'DKK', 'NOK', 'RON', 'PLN', 'TRY', 'BGN', 'MXN', 'CAD', 'AUD', 'CNY', 'JPY'],
-  'foreign_currencies' => ['GBP', 'USD', 'CHF', 'HUF', 'CZK', 'SEK', 'DKK', 'NOK', 'RON', 'PLN', 'TRY', 'BGN', 'MXN', 'CAD', 'AUD', 'CNY', 'JPY'],
 ];
