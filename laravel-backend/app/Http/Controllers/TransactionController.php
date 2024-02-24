@@ -12,7 +12,7 @@ class TransactionController extends Controller
     /**
      * Helper function to ceil up to the second decimal place
      */
-    private function round_up(float $value, int $precision)
+    private function round_up(float $value, int $precision): float
     {
         $pow = pow(10, $precision);
         return (ceil($pow * $value) + ceil($pow * $value - ceil($pow * $value))) / $pow;
@@ -40,9 +40,7 @@ class TransactionController extends Controller
         if(!$sender || !$recipient) {
             $notfound = !$sender && !$recipient ? 'Recipient and sender were not found' : ($sender ? 'Recipient account was not found' : 'Sender was not found');
             return response()->json([
-                'errors' => [[
-                    $notfound
-                ]],
+                'errors' => [$notfound],
                 'success' => false
             ], 404);
         }
@@ -59,12 +57,10 @@ class TransactionController extends Controller
                 'success' => false
             ], 406);
         }
-        // Return error if the transaction deduction is greater than sender's currency amount
+        // Return error if sender has insufficient funds for the transaction
         if ($sender['amount'] < $deductable) {
             return response()->json([
-                'errors' => [[
-                    'Sender account has insufficient funds'
-                ]],
+                'errors' => ['Sender account has insufficient funds'],
                 'success' => false
             ], 406);
         }
