@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CurrencyAccountController;
+use App\Http\Controllers\ExchangeRateController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,5 +25,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resources([
     'accounts' => CurrencyAccountController::class,
     'client'=>ClientController::class,
-    'transaction' => TransactionController::class
+    'transaction' => TransactionController::class,
+    'rates' => ExchangeRateController::class
 ]);
