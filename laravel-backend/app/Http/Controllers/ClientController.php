@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
-    public function show($clientId) {
+    public function show(int $clientId) {
         $client = Client::find($clientId);
         // Return 404 if client is not found
         if(!$client) {

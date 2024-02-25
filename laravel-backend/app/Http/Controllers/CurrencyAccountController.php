@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CurrencyAccountController extends Controller
 {
     // Route api/accounts/{$id}
-    public function show($accountId) {
+    public function show(int $accountId) {
         $account = CurrencyAccount::find($accountId);
         // Return 404 if account is not found
         if(!$account) {
@@ -17,7 +17,7 @@ class CurrencyAccountController extends Controller
                 'errors' => ['Account was not found']
             ], 404);
         }
-        $transactions = $account->transactions;
+        $transactions = [...$account->transactionsSent, ...$account->transactionsReceived];
         // Return 404 if no transactions are found
         if(!count($transactions)) {
             return response()->json([
