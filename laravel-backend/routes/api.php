@@ -23,8 +23,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resources([
+    // get api/accounts/{$id} -> show()
     'accounts' => CurrencyAccountController::class,
+    // get api/client/{$id} -> show()
     'client'=>ClientController::class,
+    // post api/transaction -> store()
     'transaction' => TransactionController::class,
+    // post api/rates -> store()
     'rates' => ExchangeRateController::class
 ]);

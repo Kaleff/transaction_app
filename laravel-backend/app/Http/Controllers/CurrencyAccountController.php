@@ -25,6 +25,8 @@ class CurrencyAccountController extends Controller
                 'errors' => ['Account has no transaction history']
             ]);
         }
+        $date = array_column($transactions, 'created_at');
+        array_multisort($transactions, SORT_DESC, $date);
         return response()->json([
             'success' => true,
             'data' => $transactions
