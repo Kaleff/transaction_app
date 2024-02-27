@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->enum('currency', config('currency.all_currencies'));
+            $table->enum('sender_currency', config('currency.all_currencies'));
             $table->double('amount', 12, 2);
             $table->double('sender_amount', 12, 2);
             $table->foreignId('sender_id');

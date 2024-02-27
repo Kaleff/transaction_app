@@ -26,7 +26,7 @@ class TransactionController extends Controller
         // Validate sender/recipient data
         $accountValidator = Validator::make($request->all(), [
             'sender_account_id' => 'required|numeric',
-            'recipient_account_id' => 'required|numeric',
+            'recipient_account_id' => "required|numeric|not_in:$request->sender_account_id",
         ], config('validator.transaction.messages'));
         if($accountValidator->fails()) {
             return response()->json([
@@ -70,6 +70,7 @@ class TransactionController extends Controller
             'sender_id' => $sender->client_id,
             'recipient_id' => $recipient->client_id,
             'sender_amount' => $deductable,
+            'sender_currency' => $sender->currency,
             ...$validator->validated()
         ];
         // Deduct amount from sender and add to recipient
