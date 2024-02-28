@@ -81,7 +81,9 @@ class TransactionController extends Controller
         Transaction::create($transaction);
         return response()->json([
             'success' => true,
-            'message' => "$deductable $sender->currency was exchanged to $request->amount $recipient->currency and were sent to the recipient"
+            'message' => "$deductable $sender->currency was exchanged to $request->amount $recipient->currency and were sent to the recipient",
+            'sender_balance' => round($sender->amount, 2),
+            'recipient_balance' => round($recipient->amount, 2)
         ]);
     }
 }

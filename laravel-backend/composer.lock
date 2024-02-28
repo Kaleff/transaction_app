@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9c491b8531eec05ba41a11d9276a5749",
+    "content-hash": "5c2ad11ff0ace30294c14337e466169d",
     "packages": [
         {
             "name": "brick/math",
@@ -3184,6 +3184,55 @@
                 }
             ],
             "time": "2023-11-08T05:53:05+00:00"
+        },
+        {
+            "name": "rs/laravel-version-control",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RedSnapper/laravel-version-control.git",
+                "reference": "38110f5c06a6e319aff5fe6b225e834b5085505b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RedSnapper/laravel-version-control/zipball/38110f5c06a6e319aff5fe6b225e834b5085505b",
+                "reference": "38110f5c06a6e319aff5fe6b225e834b5085505b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "^5.0",
+                "phpunit/phpunit": "^9.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Redsnapper\\LaravelVersionControl\\VersionControlServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Redsnapper\\LaravelVersionControl\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Red Snapper Development Team",
+                    "email": "contact@redsnapper.net"
+                }
+            ],
+            "description": "Foundations for making your app version controlled. Provides migration, blueprint and base models. Will make your app GxP compliant if you exclusively use the VC models and table structure as set out in this package.",
+            "support": {
+                "issues": "https://github.com/RedSnapper/laravel-version-control/issues",
+                "source": "https://github.com/RedSnapper/laravel-version-control/tree/v1.0.1"
+            },
+            "time": "2021-09-24T16:01:59+00:00"
         },
         {
             "name": "symfony/console",
@@ -8122,5 +8171,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
