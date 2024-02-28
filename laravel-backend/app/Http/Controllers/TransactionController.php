@@ -19,7 +19,7 @@ class TransactionController extends Controller
     }
 
     /**
-     * Route api/transaction
+     * Route POST api/transaction
      */
     public function store(Request $request)
     {

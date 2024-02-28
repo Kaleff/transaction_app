@@ -22,13 +22,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::name('sender.recipient.retrieve')
+    ->get('/accounts/{senderAccId}/{recipientAccId}', [CurrencyAccountController::class, 'retrieve']);
+
 Route::resources([
-    // get api/accounts/{$id} -> show()
+    // GET api/accounts/{$id} -> show($id)
     'accounts' => CurrencyAccountController::class,
-    // get api/client/{$id} -> show()
+    // GET api/client/{$id} -> show($id)
     'client'=>ClientController::class,
-    // post api/transaction -> store()
+    // POST api/transaction -> store($request)
     'transaction' => TransactionController::class,
-    // post api/rates -> store()
+    /**
+     * GET api/rates -> index();
+     * POST api/rates -> store($request);
+     */
     'rates' => ExchangeRateController::class
 ]);

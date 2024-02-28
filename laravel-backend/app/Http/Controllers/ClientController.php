@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+    /**
+     * Route GET api/client/{$clientId}
+     */
     public function show(int $clientId) {
         $client = Client::find($clientId);
         // Return 404 if client is not found
@@ -23,7 +26,7 @@ class ClientController extends Controller
             return response()->json([
                 'errors' => ['User does not have any currency accounts'],
                 'success' => false
-            ]);
+            ], 404);
         }
         return response()->json([
             'success' => true,
