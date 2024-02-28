@@ -12,7 +12,9 @@ export default function Accounts() {
     getAccount(id)
       .then((response) => {
         setErrors([]);
-        setTransactions(response.data.data);
+        if(response.data.success) {
+          setTransactions(response.data.data);
+        }
       })
       .catch((error) => {
         setTransactions([]);

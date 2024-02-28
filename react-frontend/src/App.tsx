@@ -5,14 +5,12 @@ function App() {
   return (
     <>
     <header>
-    <nav>
-      <ul>
+      <ul className='flex_center'>
         <li><Link to={'client'}>Clients</Link></li>
         <li><Link to={'accounts'}>Accounts</Link></li>
         <li><Link to={'rates'}>Rates</Link></li>
         <li><Link to={'transaction'}>Transaction</Link></li>
       </ul>
-    </nav>
     </header>
       <Outlet />
     </>

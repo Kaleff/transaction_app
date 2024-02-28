@@ -35,7 +35,7 @@ export default function Client() {
         {accounts.map((account, index) => {
           return (
               <h5 key={index}>
-                Account number {account.id}:  {account.amount} {account.currency}
+                Account number {account.id}:<em className="pico-color-blue-500">  {account.amount} {account.currency}</em>
               </h5>
           );
         })}
